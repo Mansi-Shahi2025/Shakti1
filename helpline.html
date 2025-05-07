@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHAKTI - Helpline</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f0f0f0;
+            color: #333;
+            padding: 20px;
+        }
+
+        /* Header Styles */
+        .header {
+            background-color: #820000;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+            border-radius: 10px;
+        }
+
+        .header h1 {
+            color: white;
+            font-size: 3em;
+            letter-spacing: 3px;
+            margin: 0;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Helpline List Styles */
+        .helpline-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .helpline-card {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 600px;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, margin 0.3s ease-in-out;
+        }
+
+        .helpline-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.2);
+            margin-top: 10px;
+        }
+
+        .helpline-info {
+            font-size: 1.2em;
+            color: #333;
+        }
+
+        .helpline-info span {
+            font-weight: bold;
+            color: #820000;
+        }
+
+        .dial-btn {
+            background-color: #4CAF50; /* Green for the dial button */
+            color: white;
+            font-size: 1.2em;
+            padding: 12px 22px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+
+        .dial-btn:hover {
+            background-color: #45a049;
+            transform: scale(1.1);
+        }
+
+        .dial-btn:active {
+            background-color: #3e8e41;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px 0;
+            background-color: #820000;
+            color: white;
+            margin-top: 50px;
+            border-radius: 10px;
+        }
+
+        /* Added gradient and shadow effects */
+        .helpline-card {
+            background: linear-gradient(135deg, #ffffff 50%, #f7f7f7 50%);
+        }
+
+        .helpline-card:hover {
+            background: linear-gradient(135deg, #ffcccc 50%, #ffcccc 50%);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <div class="header">
+        <h1>SHAKTI</h1>
+    </div>
+
+    <!-- Helpline Section -->
+    <section class="helpline-container">
+        <h2>Helplines for Women's Safety</h2>
+        <div class="helpline-card">
+            <div class="helpline-info">
+                <p><span>Women Safety (National Helpline):</span> 1091</p>
+            </div>
+            <button class="dial-btn" onclick="alert('Dialing Women Safety...')">Dial</button>
+        </div>
+        <div class="helpline-card">
+            <div class="helpline-info">
+                <p><span>Police (Emergency):</span> 100</p>
+            </div>
+            <button class="dial-btn" onclick="alert('Dialing Police...')">Dial</button>
+        </div>
+        <div class="helpline-card">
+            <div class="helpline-info">
+                <p><span>Child Helpline (1098):</span> 1098</p>
+            </div>
+            <button class="dial-btn" onclick="alert('Dialing Child Helpline...')">Dial</button>
+        </div>
+        <div class="helpline-card">
+            <div class="helpline-info">
+                <p><span>National Commission for Women (NCW):</span> 011-26942369</p>
+            </div>
+            <button class="dial-btn" onclick="alert('Dialing NCW...')">Dial</button>
+        </div>
+        <div class="helpline-card">
+            <div class="helpline-info">
+                <p><span>All India Women’s Helpline: </span>181</p>
+            </div>
+            <button class="dial-btn" onclick="alert('Dialing Women’s Helpline...')">Dial</button>
+        </div>
+        <div class="helpline-card">
+            <div class="helpline-info">
+                <p><span>Domestic Violence Helpline: </span>181</p>
+            </div>
+            <button class="dial-btn" onclick="alert('Dialing Domestic Violence Helpline...')">Dial</button>
+        </div>
+        <div class="helpline-card">
+            <div class="helpline-info">
+                <p><span>Rape Crisis Centre Helpline:</span> 1091</p>
+            </div>
+            <button class="dial-btn" onclick="alert('Dialing Rape Crisis Helpline...')">Dial</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 SHAKTI - Empowering Women, Ensuring Safety</p>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHAKTI - Travel</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f0f0f0;
+            color: #333;
+            padding: 20px;
+        }
+
+        /* Header Styles */
+        .header {
+            background-color: #820000;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            color: white;
+            font-size: 3em;
+            letter-spacing: 3px;
+            margin: 0;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Travel Map Container */
+        .travel-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 500px;
+            max-width: 1200px;
+            margin-bottom: 20px;
+            border: 2px solid #820000;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Info Section */
+        .info-section {
+            max-width: 1200px;
+            width: 100%;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .info-section h2 {
+            font-size: 2em;
+            color: #820000;
+            margin-bottom: 20px;
+        }
+
+        .info-section p {
+            font-size: 1.1em;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px 0;
+            background-color: #820000;
+            color: white;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <div class="header">
+        <h1>SHAKTI - Travel</h1>
+    </div>
+
+    <!-- Travel Map Section -->
+    <section class="travel-container">
+        <div class="map-container">
+            <!-- Replace 'YOUR_API_KEY' with your actual API key below -->
+            <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB7sYDZH4UwgqP8KkUFARkICtopN2TWzow&q=India" allowfullscreen></iframe>
+        </div>
+
+        <div class="info-section">
+            <h2>Travel for Women's Safety</h2>
+            <p>
+                SHAKTI empowers women with safety while traveling by providing live maps and helpful information.
+                Navigate safely through the country with real-time tracking and location awareness. Stay informed
+                about key locations for women’s safety, including nearby police stations, hospitals, and shelters.
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 SHAKTI - Empowering Women, Ensuring Safety</p>
+    </footer>
+</body>
+
+</html>

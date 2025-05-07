@@ -1,0 +1,181 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f7f9f9;
+  color: #444;
+  line-height: 1.6;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+/* Header */
+header {
+  background-color: #4b9cd3;
+  color: white;
+  padding: 50px 0;
+  text-align: center;
+  border-bottom: 5px solid #3b7a99;
+}
+
+header h1 {
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+header p {
+  font-size: 18px;
+}
+
+/* Health and Wellness Section */
+.health-wellness {
+  padding: 60px 0;
+  background-color: #ffffff;
+}
+
+.health-wellness h2 {
+  font-size: 30px;
+  margin-bottom: 20px;
+  color: #4b9cd3;
+  text-align: center;
+}
+
+.intro-text {
+  text-align: center;
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 40px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.card {
+  background-color: #f1f1f1;
+  border: 1px solid #ecf0f1;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-align: center;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+  font-size: 24px;
+  margin-top: 15px;
+  color: #4b9cd3;
+}
+
+.card p {
+  font-size: 16px;
+  color: #555;
+  margin-top: 10px;
+}
+
+.card .btn {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-top: 15px;
+  background-color: #f56b2a;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.card .btn:hover {
+  background-color: #e84c3d;
+}
+
+/* Period Tracker Section */
+.section {
+  margin-top: 60px;
+}
+
+.period-input {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.period-input input, .period-input button {
+  padding: 12px;
+  font-size: 16px;
+  border: 2px solid #ecf0f1;
+  border-radius: 8px;
+}
+
+.period-input button {
+  background-color: #f56b2a;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.period-input button:hover {
+  background-color: #e84c3d;
+}
+
+/* Tips Section */
+.tips-container {
+  margin-top: 40px;
+}
+
+.tip-item {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.tip-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.tip-item h3 {
+  font-size: 22px;
+  color: #4b9cd3;
+}
+
+.tip-item p {
+  font-size: 16px;
+  color: #666;
+}
+
+/* Footer */
+footer {
+  background-color: #333;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+}
+
+footer p {
+  font-size: 16px;
+}

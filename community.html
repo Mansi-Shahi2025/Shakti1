@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Styled Page</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: white;
+            color: black;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: #fff;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 10px;
+        }
+
+        nav .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo h1 {
+            font-size: 24px;
+            color: #333;
+        }
+
+        .search-bar input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 200px;
+        }
+
+        .create .btn {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        /* Sidebar and Main Feed */
+        main {
+            margin-top: 60px;
+            display: flex;
+            padding: 20px;
+        }
+
+        .left {
+            width: 25%;
+            padding-right: 20px;
+        }
+
+        .middle {
+            width: 50%;
+        }
+
+        .right {
+            width: 25%;
+            padding-left: 20px;
+        }
+
+        .profile {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .profile .profile-photo img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+
+        .profile h2 {
+            margin-left: 10px;
+            font-size: 20px;
+        }
+
+        .sidebar {
+            margin-top: 20px;
+        }
+
+        .menu-item {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .menu-item i {
+            margin-right: 10px;
+        }
+
+        .menu-item.active {
+            background-color: #f0f0f0;
+        }
+
+        .stories {
+            display: flex;
+            overflow-x: scroll;
+        }
+
+        .story {
+            margin-right: 10px;
+            text-align: center;
+        }
+
+        .story .profile-photo img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+
+        .create-post input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+            border-radius: 4px;
+        }
+
+        .create-post button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .feeds {
+            margin-top: 20px;
+        }
+
+        .feed {
+            background-color: #f9f9f9;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+        }
+
+        .feed .head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .feed .user {
+            display: flex;
+            align-items: center;
+        }
+
+        .feed .user .profile-photo img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .feed .user p {
+            margin-left: 10px;
+        }
+
+        .feed i {
+            font-size: 16px;
+        }
+
+        .messages {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .friend-requests {
+            margin-top: 20px;
+        }
+
+        .request {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: #f0f0f0;
+            margin-bottom: 10px;
+            border-radius: 4px;
+        }
+
+        .request .info {
+            display: flex;
+            align-items: center;
+        }
+
+        .request .info .profile-photo img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .request .info div {
+            margin-left: 10px;
+        }
+
+        .request .action .btn {
+            margin-left: 10px;
+        }
+
+        .customize-theme {
+            display: none;
+            position: fixed;
+            top: 20%;
+            right: 0;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            z-index: 101;
+        }
+
+        .customize-theme .card {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .font-size,
+        .color,
+        .background {
+            margin-bottom: 20px;
+        }
+
+        .font-size .choose-size span {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 10px;
+            background-color: #ccc;
+            cursor: pointer;
+        }
+
+        .font-size .choose-size .active {
+            background-color: #007BFF;
+        }
+
+        .color .choose-color span {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            margin-right: 10px;
+            background-color: #ccc;
+            cursor: pointer;
+        }
+
+        .color .choose-color .active {
+            border: 2px solid #007BFF;
+        }
+
+        .background .choose-bg {
+            display: flex;
+        }
+
+        .background .choose-bg .bg-1,
+        .background .choose-bg .bg-2,
+        .background .choose-bg .bg-3 {
+            margin-right: 10px;
+            padding: 5px;
+            cursor: pointer;
+        }
+
+        .background .choose-bg .active {
+            border: 2px solid #007BFF;
+        }
+
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+    <div class="container">
+        <div class="logo">
+            <h1>Logo</h1>
+        </div>
+        <div class="search-bar">
+            <input type="search" placeholder="Search...">
+        </div>
+        <div class="create">
+            <button class="btn btn-primary">Create</button>
+        </div>
+    </div>
+</nav>
+
+<!-- Main Content -->
+<main>
+    <div class="container">
+        <!-- Left Sidebar -->
+        <div class="left">
+            <div class="profile">
+                <div class="profile-photo">
+                    <img src="profile.jpg" alt="Profile Photo">
+                </div>
+                <h2>Username</h2>
+            </div>
+
+            <div class="sidebar">
+                <div class="menu-item active">
+                    <i class="icon">🏠</i>
+                    <h3>Home</h3>
+                </div>
+                <div class="menu-item">
+                    <i class="icon">💬</i>
+                    <h3>Messages</h3>
+                </div>
+                <div class="menu-item">
+                    <i class="icon">🔔</i>
+                    <h3>Notifications</h3>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Feed/Content -->
+        <div class="middle">
+            <div class="stories">
+                <div class="story">
+                    <div class="profile-photo">
+                        <img src="story-1.jpg" alt="Story 1">
+                    </div>
+                    <div class="name">Story 1</div>
+                </div>
+                <!-- Add more stories as needed -->
+            </div>
+
+            <div class="create-post">
+                <input type="text" placeholder="Write a post...">
+                <button class="btn btn-primary">Post</button>
+            </div>
+
+            <div class="feeds">
+                <div class="feed">
+                    <div class="head">
+                        <div class="user">
+                            <div class="profile-photo">
+                                <img src="user-1.jpg" alt="User">
+                            </div>
+                            <p>User 1</p>
+                        </div>
+                        <i class="icon">⏰</i>
+                    </div>
+                    <p>This is a feed post...</p>
+                </div>
+                <!-- Add more feeds as needed -->
+            </div>
+        </div>
+
+        <!-- Right Sidebar -->
+        <div class="right">
+            <div class="messages">
+                <div class="heading">
+                    <h3>Messages</h3>
+                    <i class="icon">✉️</i>
+                </div>
+                <div class="message-requests">
+                    <p>New message requests...</p>
+                </div>
+                <!-- Add messages as needed -->
+            </div>
+
+            <div class="friend-requests">
+                <h4>Friend Requests</h4>
+                <div class="request">
+                    <div class="info">
+                        <div class="profile-photo">
+                            <img src="friend.jpg" alt="Friend">
+                        </div>
+                        <div>
+                            <p>Friend 1</p>
+                            <small>Requested 2 days ago</small>
+                        </div>
+                    </div>
+                    <div class="action">
+                        <button class="btn btn-primary">Accept</button>
+                        <button class="btn">Reject</button>
+                    </div>
+                </div>
+                <!-- Add more friend requests as needed -->
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- Theme Customization Popup -->
+<div class="customize-theme">
+    <div class="card">
+        <div class="font-size">
+            <h4>Font Size</h4>
+            <div class="choose-size">
+                <span class="active"></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+        <div class="color">
+            <h4>Choose Color</h4>
+            <div class="choose-color">
+                <span class="active"></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+        <div class="background">
+            <h4>Background</h4>
+            <div class="choose-bg">
+                <div class="bg-1 active">
+                    <span></span>
+                    White
+                </div>
+                <div class="bg-2">
+                    <span></span>
+                    Dark Mode
+                </div>
+                <div class="bg-3">
+                    <span></span>
+                    Black Mode
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+
+

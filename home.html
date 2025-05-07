@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHAKTI Web App</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(45deg, #FF4B5C, #FF7F87); /* Pink and Red Gradient */
+            color: #FFFFFF; /* White Text */
+            overflow-x: hidden;
+        }
+
+        /* Header Styling */
+        .header {
+            background: #9C1C2B; /* Deep Red for Header */
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 3em;
+            font-weight: bold;
+            color: #F0E5D8; /* Cream Text */
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Container for Cards */
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 40px 5%;
+        }
+
+        /* Card Styling */
+        .card {
+            background: #F0E5D8; /* Light Cream Background for Cards */
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 250px;
+            perspective: 1500px;
+        }
+
+        /* Hover Effect - 3D */
+        .card:hover {
+            transform: translateY(-10px) rotateY(15deg) rotateX(10deg);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .card img {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 15px;
+            border-radius: 50%;
+            background: #9C1C2B; /* Red Background for Image */
+            padding: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        /* Optional: Enhance image rotation on hover */
+        .card:hover img {
+            transform: rotate(15deg); /* Rotate the image slightly */
+        }
+
+        .card p {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #9C1C2B; /* Red Text */
+        }
+
+        /* Footer Styling */
+        .footer {
+            text-align: center;
+            padding: 15px 0;
+            background: #9C1C2B; /* Deep Red Footer */
+            color: #F0E5D8; /* Cream Text */
+            font-size: 1em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>SHAKTI</h1>
+    </div>
+
+    <div class="container">
+        <a href="community.html" class="card">
+            <img src="community.jpg" alt="Community Icon">
+            <p>Community</p>
+        </a>
+        <a href="sos.html" class="card">
+            <img src="sos.jpg" alt="SOS Icon">
+            <p>SOS</p>
+        </a>
+        <a href="close.html" class="card">
+            <img src="close.jpg" alt="Close Contacts Icon">
+            <p>Close Contacts</p>
+        </a>
+        <a href="helpline.html" class="card">
+            <img src="helpline.png" alt="Helpline Icon">
+            <p>Helpline</p>
+        </a>
+        <a href="donation.html" class="card">
+            <img src="donatition.jpg" alt="Donations Icon">
+            <p>Donations</p>
+        </a>
+        <a href="learn.html" class="card">
+            <img src="learn.png" alt="Learn Icon">
+            <p>Learn</p>
+        </a>
+        <a href="news.html" class="card">
+            <img src="news.jpg" alt="News Icon">
+            <p>News</p>
+        </a>
+        <a href="travel.html" class="card">
+            <img src="travel.jpg" alt="Travel Icon">
+            <p>Travel</p>
+        </a>
+    </div>
+
+    <div class="footer">
+        <p>© 2024 SHAKTI Web App - Empowering Women, Ensuring Safety</p>
+    </div>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

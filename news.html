@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Women's Safety - News & Awareness</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        .header {
+            background-color: #820000;
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+            font-size: 2.8em;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            padding: 40px 20px;
+        }
+
+        .news-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .news-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .news-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .news-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .news-card-content {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .news-card h3 {
+            font-size: 1.4em;
+            color: #820000;
+            margin-bottom: 15px;
+            line-height: 1.4em;
+        }
+
+        .news-card p {
+            font-size: 1em;
+            color: #555;
+            line-height: 1.6em;
+            margin-bottom: 20px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-height: 3.6em;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+        }
+
+        .btn {
+            background-color: #820000;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            text-align: center;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background-color: #ffcc00;
+            color: #333;
+        }
+
+        .footer {
+            background-color: #820000;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 1em;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        Women's Safety - News & Awareness
+    </div>
+
+    <div class="container">
+        <!-- News Section -->
+        <div class="news-section" id="news-container">
+            <!-- News cards will be dynamically added here -->
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>© 2024 SHAKTI - Empowering Women, Raising Awareness</p>
+    </div>
+
+    <script>
+        const API_KEY = '9357c3defcb64c4d9e5f8ee4236a4f16'; // Replace with your NewsAPI key
+        const API_URL = `https://newsapi.org/v2/everything?q=women&language=en&pageSize=16&apiKey=${API_KEY}`;
+
+        const fetchNews = async () => {
+            try {
+                const response = await fetch(API_URL);
+                const data = await response.json();
+
+                if (data.status === 'ok') {
+                    // Filter articles with essential fields
+                    const filteredNews = data.articles.filter(article =>
+                        article.title && article.description && article.url && article.urlToImage
+                    );
+                    displayNews(filteredNews);
+                } else {
+                    console.error('Error fetching news:', data.message);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        };
+
+        const displayNews = (articles) => {
+            const container = document.getElementById('news-container');
+            container.innerHTML = '';
+
+            articles.forEach(article => {
+                const card = document.createElement('div');
+                card.className = 'news-card';
+
+                card.innerHTML = `
+                    <img src="${article.urlToImage}" alt="${article.title}">
+                    <div class="news-card-content">
+                        <h3>${article.title}</h3>
+                        <p>${article.description}</p>
+                        <a href="${article.url}" target="_blank">
+                            <button class="btn">Read More</button>
+                        </a>
+                    </div>
+                `;
+
+                container.appendChild(card);
+            });
+        };
+
+        // Fetch and display news on page load
+        fetchNews();
+    </script>
+</body>
+
+</html>
+
+
