@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Styled Page</title>
     <style>
+        /* Modernized CSS */
+
         * {
             padding: 0;
             margin: 0;
@@ -13,283 +15,457 @@
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: white;
-            color: black;
+            font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+            background-color: #f5f7fa;
+            color: #222;
+            line-height: 1.6;
         }
 
-        /* Navigation */
         nav {
-            background-color: #fff;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            background: #fff;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.07);
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             z-index: 100;
-            padding: 10px;
+            padding: 16px 0;
         }
 
         nav .container {
             display: flex;
             align-items: center;
             justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 32px;
         }
 
         .logo h1 {
-            font-size: 24px;
-            color: #333;
+            font-size: 28px;
+            color: #0077ff;
+            font-weight: 700;
+            letter-spacing: 1px;
         }
 
         .search-bar input {
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            width: 200px;
+            padding: 10px 16px;
+            border: 1px solid #e0e0e0;
+            border-radius: 24px;
+            width: 240px;
+            background: #f2f4f8;
+            transition: border 0.2s;
+            font-size: 16px;
+        }
+        .search-bar input:focus {
+            border: 1.5px solid #0077ff;
+            outline: none;
+            background: #fff;
         }
 
         .create .btn {
-            padding: 10px 20px;
-            background-color: #007BFF;
-            color: white;
+            padding: 10px 28px;
+            background: linear-gradient(90deg, #0077ff 0%, #00c6ff 100%);
+            color: #fff;
             border: none;
-            border-radius: 4px;
+            border-radius: 24px;
             cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(0,119,255,0.08);
+            transition: background 0.2s, box-shadow 0.2s;
+        }
+        .create .btn:hover {
+            background: linear-gradient(90deg, #005fcc 0%, #0099cc 100%);
+            box-shadow: 0 4px 16px rgba(0,119,255,0.15);
         }
 
-        /* Sidebar and Main Feed */
         main {
-            margin-top: 60px;
+            margin-top: 80px;
             display: flex;
-            padding: 20px;
+            justify-content: center;
+            padding: 32px 0;
+            background: #f5f7fa;
+            min-height: 100vh;
         }
 
-        .left {
-            width: 25%;
-            padding-right: 20px;
+        .container {
+            display: flex;
+            width: 100%;
+            max-width: 1200px;
+            gap: 32px;
+        }
+
+        .left, .right {
+            width: 23%;
         }
 
         .middle {
-            width: 50%;
-        }
-
-        .right {
-            width: 25%;
-            padding-left: 20px;
+            width: 54%;
         }
 
         .profile {
             display: flex;
             align-items: center;
-            margin-bottom: 20px;
+            margin-bottom: 32px;
+            background: #fff;
+            padding: 18px 20px;
+            border-radius: 18px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
         }
 
         .profile .profile-photo img {
-            width: 50px;
-            height: 50px;
+            width: 56px;
+            height: 56px;
             border-radius: 50%;
+            border: 2px solid #e0e0e0;
         }
 
         .profile h2 {
-            margin-left: 10px;
-            font-size: 20px;
+            margin-left: 16px;
+            font-size: 22px;
+            font-weight: 600;
+            color: #222;
         }
 
         .sidebar {
-            margin-top: 20px;
+            margin-top: 16px;
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            padding: 12px 0;
         }
 
         .menu-item {
             display: flex;
             align-items: center;
-            padding: 10px;
+            padding: 14px 24px;
             cursor: pointer;
+            border-radius: 12px;
+            transition: background 0.18s;
+            font-size: 17px;
+            color: #444;
         }
-
         .menu-item i {
-            margin-right: 10px;
+            margin-right: 14px;
+            font-size: 20px;
         }
-
-        .menu-item.active {
-            background-color: #f0f0f0;
+        .menu-item.active, .menu-item:hover {
+            background: #f0f6ff;
+            color: #0077ff;
         }
 
         .stories {
             display: flex;
-            overflow-x: scroll;
+            gap: 18px;
+            overflow-x: auto;
+            padding-bottom: 8px;
+            margin-bottom: 24px;
         }
-
         .story {
-            margin-right: 10px;
+            min-width: 80px;
             text-align: center;
+            background: #fff;
+            border-radius: 14px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            padding: 10px 0 6px 0;
         }
-
         .story .profile-photo img {
-            width: 50px;
-            height: 50px;
+            width: 54px;
+            height: 54px;
             border-radius: 50%;
+            border: 2px solid #0077ff;
+        }
+        .story .name {
+            margin-top: 6px;
+            font-size: 15px;
+            color: #333;
         }
 
+        .create-post {
+            background: #fff;
+            border-radius: 14px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            padding: 18px 20px;
+            margin-bottom: 24px;
+        }
         .create-post input {
             width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            margin-bottom: 10px;
-            border-radius: 4px;
+            padding: 12px 16px;
+            border: 1px solid #e0e0e0;
+            border-radius: 24px;
+            margin-bottom: 12px;
+            font-size: 16px;
+            background: #f2f4f8;
+            transition: border 0.2s;
         }
-
+        .create-post input:focus {
+            border: 1.5px solid #0077ff;
+            background: #fff;
+            outline: none;
+        }
         .create-post button {
             width: 100%;
-            padding: 10px;
-            background-color: #007BFF;
-            color: white;
+            padding: 12px 0;
+            background: linear-gradient(90deg, #0077ff 0%, #00c6ff 100%);
+            color: #fff;
             border: none;
-            border-radius: 4px;
+            border-radius: 24px;
             cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+        .create-post button:hover {
+            background: linear-gradient(90deg, #005fcc 0%, #0099cc 100%);
         }
 
         .feeds {
-            margin-top: 20px;
+            margin-top: 0;
         }
-
         .feed {
-            background-color: #f9f9f9;
-            padding: 15px;
-            margin-bottom: 10px;
-            border-radius: 4px;
+            background: #fff;
+            padding: 18px 20px;
+            margin-bottom: 18px;
+            border-radius: 14px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
         }
-
         .feed .head {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            margin-bottom: 8px;
         }
-
         .feed .user {
             display: flex;
             align-items: center;
         }
-
         .feed .user .profile-photo img {
-            width: 40px;
-            height: 40px;
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
+            border: 2px solid #e0e0e0;
         }
-
         .feed .user p {
-            margin-left: 10px;
+            margin-left: 12px;
+            font-weight: 500;
+            color: #222;
         }
-
         .feed i {
-            font-size: 16px;
+            font-size: 18px;
+            color: #888;
         }
 
         .messages {
-            background-color: #f9f9f9;
-            padding: 20px;
-            border-radius: 8px;
-            margin-top: 20px;
+            background: #fff;
+            padding: 22px 20px;
+            border-radius: 14px;
+            margin-top: 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        .messages .heading {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        .messages .heading h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #222;
+        }
+        .messages .heading i {
+            font-size: 20px;
+            color: #0077ff;
+        }
+
+        .message-requests p {
+            color: #555;
+            font-size: 15px;
         }
 
         .friend-requests {
-            margin-top: 20px;
+            margin-top: 24px;
+            background: #fff;
+            border-radius: 14px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            padding: 18px 20px;
         }
-
+        .friend-requests h4 {
+            font-size: 17px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #222;
+        }
         .request {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px;
-            background-color: #f0f0f0;
-            margin-bottom: 10px;
-            border-radius: 4px;
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
         }
-
+        .request:last-child {
+            border-bottom: none;
+        }
         .request .info {
             display: flex;
             align-items: center;
         }
-
         .request .info .profile-photo img {
-            width: 40px;
-            height: 40px;
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
+            border: 2px solid #e0e0e0;
         }
-
         .request .info div {
-            margin-left: 10px;
+            margin-left: 12px;
         }
-
+        .request .info p {
+            font-weight: 500;
+            color: #222;
+        }
+        .request .info small {
+            color: #888;
+        }
         .request .action .btn {
             margin-left: 10px;
+            padding: 8px 18px;
+            border-radius: 18px;
+            font-size: 15px;
+            border: none;
+            cursor: pointer;
+            background: #f2f4f8;
+            color: #0077ff;
+            font-weight: 500;
+            transition: background 0.2s, color 0.2s;
+        }
+        .request .action .btn.btn-primary {
+            background: linear-gradient(90deg, #0077ff 0%, #00c6ff 100%);
+            color: #fff;
+        }
+        .request .action .btn.btn-primary:hover {
+            background: linear-gradient(90deg, #005fcc 0%, #0099cc 100%);
+        }
+        .request .action .btn:hover {
+            background: #e0eaff;
+            color: #005fcc;
         }
 
         .customize-theme {
             display: none;
             position: fixed;
-            top: 20%;
-            right: 0;
-            background-color: white;
-            padding: 20px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            top: 18%;
+            right: 3%;
+            background: #fff;
+            padding: 32px 28px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.12);
             z-index: 101;
+            border-radius: 18px;
+            min-width: 320px;
         }
-
         .customize-theme .card {
             display: flex;
             flex-direction: column;
+            gap: 28px;
         }
 
-        .font-size,
-        .color,
-        .background {
-            margin-bottom: 20px;
+        .font-size, .color, .background {
+            margin-bottom: 0;
         }
 
+        .font-size .choose-size {
+            display: flex;
+            gap: 16px;
+            margin-top: 10px;
+        }
         .font-size .choose-size span {
             display: inline-block;
-            width: 10px;
-            height: 10px;
+            width: 16px;
+            height: 16px;
             border-radius: 50%;
-            margin-right: 10px;
-            background-color: #ccc;
+            background: #e0e0e0;
             cursor: pointer;
+            transition: background 0.2s, border 0.2s;
+            border: 2px solid transparent;
         }
-
         .font-size .choose-size .active {
-            background-color: #007BFF;
+            background: #0077ff;
+            border: 2px solid #0077ff;
         }
 
+        .color .choose-color {
+            display: flex;
+            gap: 14px;
+            margin-top: 10px;
+        }
         .color .choose-color span {
             display: inline-block;
-            width: 20px;
-            height: 20px;
+            width: 24px;
+            height: 24px;
             border-radius: 50%;
-            margin-right: 10px;
-            background-color: #ccc;
+            background: #e0e0e0;
             cursor: pointer;
+            border: 2px solid transparent;
+            transition: border 0.2s;
         }
-
+        .color .choose-color span:nth-child(1) { background: #0077ff; }
+        .color .choose-color span:nth-child(2) { background: #ff4d4f; }
+        .color .choose-color span:nth-child(3) { background: #52c41a; }
+        .color .choose-color span:nth-child(4) { background: #faad14; }
+        .color .choose-color span:nth-child(5) { background: #13c2c2; }
         .color .choose-color .active {
-            border: 2px solid #007BFF;
+            border: 2px solid #222;
         }
 
         .background .choose-bg {
             display: flex;
+            gap: 14px;
+            margin-top: 10px;
         }
-
-        .background .choose-bg .bg-1,
-        .background .choose-bg .bg-2,
-        .background .choose-bg .bg-3 {
-            margin-right: 10px;
-            padding: 5px;
+        .background .choose-bg > div {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 18px;
+            border-radius: 14px;
             cursor: pointer;
+            background: #f2f4f8;
+            color: #222;
+            font-size: 15px;
+            border: 2px solid transparent;
+            transition: background 0.2s, border 0.2s;
+        }
+        .background .choose-bg > div.active,
+        .background .choose-bg > div:hover {
+            background: #e0eaff;
+            border: 2px solid #0077ff;
+            color: #0077ff;
+        }
+        .background .choose-bg .bg-1 span { background: #fff; }
+        .background .choose-bg .bg-2 span { background: #222; }
+        .background .choose-bg .bg-3 span { background: #000; }
+        .background .choose-bg span {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            margin-right: 6px;
+            border: 1.5px solid #e0e0e0;
         }
 
-        .background .choose-bg .active {
-            border: 2px solid #007BFF;
+        @media (max-width: 900px) {
+            .container {
+                flex-direction: column;
+                gap: 0;
+            }
+            .left, .middle, .right {
+                width: 100%;
+                padding: 0;
+            }
+            main {
+                padding: 16px 0;
+            }
         }
-
     </style>
 </head>
 <body>
@@ -298,13 +474,15 @@
 <nav>
     <div class="container">
         <div class="logo">
-            <h1>Logo</h1>
+            <img src="community.jpg" alt="Shakti Logo" style="height:40px; border-radius:50%;">
         </div>
         <div class="search-bar">
-            <input type="search" placeholder="Search...">
+            <input type="search" placeholder="Search safety tips, users, or locations...">
         </div>
         <div class="create">
-            <button class="btn btn-primary">Create</button>
+            <button class="btn btn-primary">
+                <img src="https://img.icons8.com/ios-filled/24/ffffff/plus-math.png" alt="Create" style="vertical-align:middle;margin-right:8px;">Share Story
+            </button>
         </div>
     </div>
 </nav>
@@ -316,23 +494,31 @@
         <div class="left">
             <div class="profile">
                 <div class="profile-photo">
-                    <img src="profile.jpg" alt="Profile Photo">
+                    <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Profile Photo">
                 </div>
-                <h2>Username</h2>
+                <h2>Ananya</h2>
             </div>
 
             <div class="sidebar">
                 <div class="menu-item active">
-                    <i class="icon">🏠</i>
+                    <img src="https://img.icons8.com/ios-filled/24/ff69b4/home.png" alt="Home" style="margin-right:14px;">
                     <h3>Home</h3>
                 </div>
                 <div class="menu-item">
-                    <i class="icon">💬</i>
-                    <h3>Messages</h3>
+                    <img src="https://img.icons8.com/ios-filled/24/ff69b4/megaphone.png" alt="SOS Stories" style="margin-right:14px;">
+                    <h3>SOS Stories</h3>
                 </div>
                 <div class="menu-item">
-                    <i class="icon">🔔</i>
-                    <h3>Notifications</h3>
+                    <img src="https://img.icons8.com/ios-filled/24/ff69b4/marker.png" alt="Safe Spaces" style="margin-right:14px;">
+                    <h3>Safe Spaces</h3>
+                </div>
+                <div class="menu-item">
+                    <img src="https://img.icons8.com/ios-filled/24/ff69b4/helping-hand.png" alt="Support" style="margin-right:14px;">
+                    <h3>Support</h3>
+                </div>
+                <div class="menu-item">
+                    <img src="https://img.icons8.com/ios-filled/24/ff69b4/book.png" alt="Resources" style="margin-right:14px;">
+                    <h3>Resources</h3>
                 </div>
             </div>
         </div>
@@ -342,15 +528,29 @@
             <div class="stories">
                 <div class="story">
                     <div class="profile-photo">
-                        <img src="story-1.jpg" alt="Story 1">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Story 1">
                     </div>
-                    <div class="name">Story 1</div>
+                    <div class="name">Priya</div>
+                    <div style="font-size:12px;color:#888;">Shared a safety tip</div>
                 </div>
-                <!-- Add more stories as needed -->
+                <div class="story">
+                    <div class="profile-photo">
+                        <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Story 2">
+                    </div>
+                    <div class="name">Meera</div>
+                    <div style="font-size:12px;color:#888;">SOS Experience</div>
+                </div>
+                <div class="story">
+                    <div class="profile-photo">
+                        <img src="https://randomuser.me/api/portraits/women/46.jpg" alt="Story 3">
+                    </div>
+                    <div class="name">Sara</div>
+                    <div style="font-size:12px;color:#888;">Found a Safe Space</div>
+                </div>
             </div>
 
             <div class="create-post">
-                <input type="text" placeholder="Write a post...">
+                <input type="text" placeholder="Share your experience, tip, or alert...">
                 <button class="btn btn-primary">Post</button>
             </div>
 
@@ -359,15 +559,38 @@
                     <div class="head">
                         <div class="user">
                             <div class="profile-photo">
-                                <img src="user-1.jpg" alt="User">
+                                <img src="https://randomuser.me/api/portraits/women/36.jpg" alt="User">
                             </div>
-                            <p>User 1</p>
+                            <p>Riya</p>
                         </div>
-                        <i class="icon">⏰</i>
+                        <img src="https://img.icons8.com/ios-filled/20/888888/time.png" alt="Time">
                     </div>
-                    <p>This is a feed post...</p>
+                    <p><strong>Safety Tip:</strong> Always share your live location with a trusted contact when traveling late at night.</p>
                 </div>
-                <!-- Add more feeds as needed -->
+                <div class="feed">
+                    <div class="head">
+                        <div class="user">
+                            <div class="profile-photo">
+                                <img src="https://randomuser.me/api/portraits/women/37.jpg" alt="User">
+                            </div>
+                            <p>Shalini</p>
+                        </div>
+                        <img src="https://img.icons8.com/ios-filled/20/888888/time.png" alt="Time">
+                    </div>
+                    <p><strong>SOS Alert:</strong> I used the SOS button yesterday and got help from the community within minutes. Thank you all!</p>
+                </div>
+                <div class="feed">
+                    <div class="head">
+                        <div class="user">
+                            <div class="profile-photo">
+                                <img src="https://randomuser.me/api/portraits/women/38.jpg" alt="User">
+                            </div>
+                            <p>Neha</p>
+                        </div>
+                        <img src="https://img.icons8.com/ios-filled/20/888888/time.png" alt="Time">
+                    </div>
+                    <p><strong>Safe Space:</strong> The new women's help desk at City Mall is very supportive and responsive!</p>
+                </div>
             </div>
         </div>
 
@@ -375,33 +598,69 @@
         <div class="right">
             <div class="messages">
                 <div class="heading">
-                    <h3>Messages</h3>
-                    <i class="icon">✉️</i>
+                    <h3>Quick SOS</h3>
+                    <img src="https://img.icons8.com/ios-filled/24/ff69b4/alarm.png" alt="SOS">
                 </div>
                 <div class="message-requests">
-                    <p>New message requests...</p>
+                    <button class="btn btn-primary" style="width:100%;margin-bottom:10px;background:linear-gradient(90deg,#ff69b4 0%,#ffb6c1 100%);">
+                        <img src="https://img.icons8.com/ios-filled/18/ffffff/alarm.png" alt="SOS" style="vertical-align:middle;margin-right:4px;">Send SOS Alert
+                    </button>
+                    <p style="font-size:14px;color:#888;">Your location will be shared with trusted contacts and nearby helpers.</p>
                 </div>
-                <!-- Add messages as needed -->
             </div>
 
-            <div class="friend-requests">
-                <h4>Friend Requests</h4>
+            <div class="messages" style="margin-top:18px;">
+                <div class="heading">
+                    <h3>Helpline</h3>
+                    <img src="https://img.icons8.com/ios-filled/24/ff69b4/phone.png" alt="Helpline">
+                </div>
+                <div class="message-requests">
+                    <p><strong>Women Helpline:</strong> <a href="tel:1091" style="color:#ff69b4;text-decoration:none;">1091</a></p>
+                    <p><strong>Police:</strong> <a href="tel:100" style="color:#ff69b4;text-decoration:none;">100</a></p>
+                    <p><strong>Emergency:</strong> <a href="tel:112" style="color:#ff69b4;text-decoration:none;">112</a></p>
+                </div>
+            </div>
+
+            <div class="friend-requests" style="margin-top:18px;">
+                <h4>Support Connections</h4>
                 <div class="request">
                     <div class="info">
                         <div class="profile-photo">
-                            <img src="friend.jpg" alt="Friend">
+                            <img src="https://randomuser.me/api/portraits/women/47.jpg" alt="Support Friend">
                         </div>
                         <div>
-                            <p>Friend 1</p>
-                            <small>Requested 2 days ago</small>
+                            <p>Sunita</p>
+                            <small>Active Listener</small>
                         </div>
                     </div>
                     <div class="action">
-                        <button class="btn btn-primary">Accept</button>
-                        <button class="btn">Reject</button>
+                        <button class="btn btn-primary">
+                            <img src="https://img.icons8.com/ios-filled/18/ffffff/checkmark.png" alt="Accept" style="vertical-align:middle;margin-right:4px;">Connect
+                        </button>
+                        <button class="btn">
+                            <img src="https://img.icons8.com/ios-filled/18/ff69b4/delete-sign.png" alt="Reject" style="vertical-align:middle;margin-right:4px;">Ignore
+                        </button>
                     </div>
                 </div>
-                <!-- Add more friend requests as needed -->
+                <div class="request">
+                    <div class="info">
+                        <div class="profile-photo">
+                            <img src="https://randomuser.me/api/portraits/women/48.jpg" alt="Support Friend">
+                        </div>
+                        <div>
+                            <p>Megha</p>
+                            <small>Safety Volunteer</small>
+                        </div>
+                    </div>
+                    <div class="action">
+                        <button class="btn btn-primary">
+                            <img src="https://img.icons8.com/ios-filled/18/ffffff/checkmark.png" alt="Accept" style="vertical-align:middle;margin-right:4px;">Connect
+                        </button>
+                        <button class="btn">
+                            <img src="https://img.icons8.com/ios-filled/18/ff69b4/delete-sign.png" alt="Reject" style="vertical-align:middle;margin-right:4px;">Ignore
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -449,6 +708,52 @@
         </div>
     </div>
 </div>
+
+<script>
+// Share Story/Post functionality
+document.querySelector('.create-post button').onclick = function() {
+    const input = document.querySelector('.create-post input');
+    if (input.value.trim()) {
+        alert('Thank you for sharing your story!\n(You can connect this to your backend to actually post.)');
+        input.value = '';
+    } else {
+        alert('Please write something before posting.');
+    }
+};
+
+// SOS Button functionality
+const sosBtn = document.querySelector('.messages .btn.btn-primary');
+if (sosBtn) {
+    sosBtn.onclick = function() {
+        alert('SOS Alert Sent!\nYour location and details have been shared with trusted contacts.');
+    };
+}
+
+// Connect/Ignore buttons in Support Connections
+document.querySelectorAll('.friend-requests .btn-primary').forEach(btn => {
+    btn.onclick = function() {
+        const req = btn.closest('.request');
+        req.querySelector('.action').innerHTML = '<span style="color:#0077ff;font-weight:500;">Connected!</span>';
+    };
+});
+document.querySelectorAll('.friend-requests .btn:not(.btn-primary)').forEach(btn => {
+    btn.onclick = function() {
+        const req = btn.closest('.request');
+        req.style.display = 'none';
+    };
+});
+
+// Sidebar navigation (simulate page navigation)
+document.querySelectorAll('.sidebar .menu-item').forEach(item => {
+    item.onclick = function() {
+        document.querySelectorAll('.sidebar .menu-item').forEach(i => i.classList.remove('active'));
+        item.classList.add('active');
+        const page = item.querySelector('h3').textContent.trim();
+        alert('Navigate to: ' + page + '\n(You can link this to actual pages.)');
+        // Example: window.location.href = page.toLowerCase().replace(/\s/g, '') + '.html';
+    };
+});
+</script>
 
 </body>
 </html>
