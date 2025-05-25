@@ -1,127 +1,248 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SHAKTI - Travel</title>
-    <style>
-        /* Global Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SHAKTI - Travel</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
 
-        body {
-            background-color: #f0f0f0;
-            color: #333;
-            padding: 20px;
-        }
+    body {
+      background-color: #f0f0f0;
+      color: #333;
+      padding: 20px;
+    }
 
-        /* Header Styles */
-        .header {
-            background-color: #820000;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-            margin-bottom: 30px;
-        }
+    .header {
+      background-color: #820000;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+      margin-bottom: 30px;
+    }
 
-        .header h1 {
-            color: white;
-            font-size: 3em;
-            letter-spacing: 3px;
-            margin: 0;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-        }
+    .header h1 {
+      color: white;
+      font-size: 3em;
+      letter-spacing: 3px;
+      margin: 0;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    }
 
-        /* Travel Map Container */
-        .travel-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
-        }
+    .travel-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
 
-        .map-container {
-            width: 100%;
-            height: 500px;
-            max-width: 1200px;
-            margin-bottom: 20px;
-            border: 2px solid #820000;
-            border-radius: 10px;
-            overflow: hidden;
-        }
+    .route-form {
+      margin-bottom: 20px;
+      background: #fff;
+      padding: 15px 25px;
+      border-radius: 10px;
+      box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 700px;
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
 
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
+    .route-form input {
+      padding: 10px;
+      font-size: 1em;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 45%;
+    }
 
-        /* Info Section */
-        .info-section {
-            max-width: 1200px;
-            width: 100%;
-            background-color: #ffffff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            margin-bottom: 30px;
-        }
+    .route-form button {
+      background-color: #820000;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1em;
+      border-radius: 5px;
+      cursor: pointer;
+    }
 
-        .info-section h2 {
-            font-size: 2em;
-            color: #820000;
-            margin-bottom: 20px;
-        }
+    .route-form button:hover {
+      background-color: #a50000;
+    }
 
-        .info-section p {
-            font-size: 1.1em;
-            color: #555;
-            line-height: 1.6;
-        }
+    .map-container {
+      width: 100%;
+      height: 500px;
+      max-width: 1200px;
+      margin-bottom: 20px;
+      border: 2px solid #820000;
+      border-radius: 10px;
+      overflow: hidden;
+    }
 
-        footer {
-            text-align: center;
-            padding: 15px 0;
-            background-color: #820000;
-            color: white;
-            margin-top: 50px;
-        }
-    </style>
+    #map {
+      width: 100%;
+      height: 100%;
+    }
+
+    .info-section {
+      max-width: 1200px;
+      width: 100%;
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .info-section h2 {
+      font-size: 2em;
+      color: #820000;
+      margin-bottom: 20px;
+    }
+
+    .info-section p {
+      font-size: 1.1em;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    .loading-message {
+      margin-top: 10px;
+      color: #555;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px 0;
+      background-color: #820000;
+      color: white;
+      margin-top: 50px;
+    }
+  </style>
 </head>
 
 <body>
-    <!-- Header Section -->
-    <div class="header">
-        <h1>SHAKTI - Travel</h1>
+  <!-- Header -->
+  <div class="header">
+    <h1>SHAKTI - Travel</h1>
+  </div>
+
+  <!-- Travel Section -->
+  <section class="travel-container">
+    <form class="route-form" id="routeForm">
+      <input type="text" id="origin" placeholder="Enter origin (e.g. Delhi)" required />
+      <input type="text" id="destination" placeholder="Enter destination (e.g. Mumbai)" required />
+      <button type="submit">Find Safest Route</button>
+    </form>
+
+    <div class="loading-message" id="loadingMessage" style="display: none;">Loading route...</div>
+
+    <div class="map-container">
+      <div id="map"></div>
     </div>
 
-    <!-- Travel Map Section -->
-    <section class="travel-container">
-        <div class="map-container">
-            <!-- Replace 'YOUR_API_KEY' with your actual API key below -->
-            <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB7sYDZH4UwgqP8KkUFARkICtopN2TWzow&q=India" allowfullscreen></iframe>
-        </div>
+    <div class="info-section">
+      <h2>Travel for Women's Safety</h2>
+      <p>
+        SHAKTI empowers women with safety while traveling by providing live maps and helpful information.
+        Navigate safely through the country with real-time tracking and location awareness. Stay informed
+        about key locations for women’s safety, including nearby police stations, hospitals, and shelters.
+      </p>
+    </div>
+  </section>
 
-        <div class="info-section">
-            <h2>Travel for Women's Safety</h2>
-            <p>
-                SHAKTI empowers women with safety while traveling by providing live maps and helpful information.
-                Navigate safely through the country with real-time tracking and location awareness. Stay informed
-                about key locations for women’s safety, including nearby police stations, hospitals, and shelters.
-            </p>
-        </div>
-    </section>
+  <!-- Footer -->
+  <footer>
+    <p>© 2024 SHAKTI - Empowering Women, Ensuring Safety</p>
+  </footer>
 
-    <!-- Footer -->
-    <footer>
-        <p>© 2024 SHAKTI - Empowering Women, Ensuring Safety</p>
-    </footer>
+  <!-- Configuration Script -->
+  <script src="config.js"></script>
+
+  <!-- Main Script -->
+  <script>
+    let map, routePath;
+
+    function initMap() {
+      map = new google.maps.Map(document.getElementById("map"), {
+        center: { lat: 20.5937, lng: 78.9629 },
+        zoom: 5,
+      });
+
+      // Add autocomplete to origin and destination fields
+      new google.maps.places.Autocomplete(document.getElementById("origin"));
+      new google.maps.places.Autocomplete(document.getElementById("destination"));
+    }
+
+    async function fetchSafestRoute(origin, destination) {
+      const response = await fetch("http://localhost:5000/safest-route", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ origin, destination }),
+      });
+
+      if (!response.ok) throw new Error("Server error");
+
+      const data = await response.json();
+      if (!data.route || data.route.length === 0) throw new Error("No route found");
+      return data;
+    }
+
+    function drawRoute(coordinates) {
+    if (routePath) routePath.setMap(null); // remove existing route
+
+    const route = coordinates.map(coord => ({ lat: coord[0], lng: coord[1] }));
+    routePath = new google.maps.Polyline({
+        path: route,
+        geodesic: true,
+        strokeColor: "#820000",
+        strokeOpacity: 1.0,
+        strokeWeight: 4,
+    });
+
+    routePath.setMap(map);
+
+    // Auto-zoom and center the map
+    const bounds = new google.maps.LatLngBounds();
+    route.forEach(point => bounds.extend(point));
+    map.fitBounds(bounds);
+}
+
+
+    document.getElementById("routeForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const origin = document.getElementById("origin").value;
+      const destination = document.getElementById("destination").value;
+      const loading = document.getElementById("loadingMessage");
+
+      try {
+        loading.style.display = "block";
+        const data = await fetchSafestRoute(origin, destination);
+        drawRoute(data.route);
+      } catch (error) {
+        alert("Failed to fetch route: " + error.message);
+        console.error(error);
+      } finally {
+        loading.style.display = "none";
+      }
+    });
+
+    // Load Google Maps script dynamically
+    const apiKey = window.CONFIG.GOOGLE_MAPS_API_KEY;
+    const script = document.createElement("script");
+    script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places&callback=initMap`;
+    script.async = true;
+    script.defer = true;
+    document.head.appendChild(script);
+  </script>
 </body>
-
 </html>
